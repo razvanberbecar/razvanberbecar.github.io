@@ -63,23 +63,7 @@ function initMagnetic() {
 }
 
 /* ============================================================
-   3. ASTERISK + MARQUEE react to scroll velocity
-   ============================================================ */
-function initScrollReactive() {
-  if (prefersReduced) return;
-  const asterisk = document.getElementById("asterisk");
-  let lastY = window.scrollY, rot = 0;
-
-  window.addEventListener("scroll", () => {
-    const dy = window.scrollY - lastY;
-    lastY = window.scrollY;
-    rot += dy * 0.4;
-    if (asterisk) asterisk.style.transform = `rotate(${rot}deg)`;
-  }, { passive: true });
-}
-
-/* ============================================================
-   4. LOADING SCREEN  (counter + panel wipe)
+   3. LOADING SCREEN  (counter + panel wipe)
    ============================================================ */
 function initLoader(onDone) {
   const loader = document.getElementById("loader");
@@ -196,7 +180,6 @@ function initFit() {
 function main() {
   initCursor();
   initMagnetic();
-  initScrollReactive();
   initFit();
 
   // mask display headings immediately so they don't flash before the reveal

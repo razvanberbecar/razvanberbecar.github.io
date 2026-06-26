@@ -52,21 +52,6 @@ strong { font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--acc
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-/* big decorative asterisk */
-.asterisk {
-  position: fixed;
-  top: 18vh; right: 4vw;
-  font-family: var(--display);
-  font-size: clamp(4rem, 11vw, 11rem);
-  color: var(--accent);
-  z-index: 0;
-  pointer-events: none;
-  line-height: 1;
-  animation: spin 14s linear infinite;
-  opacity: 0.92;
-}
-@keyframes spin { to { transform: rotate(360deg); } }
-
 main, .top, .footer, .marquee { position: relative; z-index: 2; }
 
 /* ============================================================
@@ -223,7 +208,7 @@ main, .top, .footer, .marquee { position: relative; z-index: 2; }
 .hero__name {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(3rem, 13vw, 12rem); /* fallback; JS fits each line to width */
+  font-size: clamp(3rem, 9vw, 12rem); /* fallback; JS fits each line to width */
   line-height: 0.86;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -434,5 +419,5 @@ main, .top, .footer, .marquee { position: relative; z-index: 2; }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
-  .asterisk, .marquee__track { animation: none !important; }
+  .marquee__track { animation: none !important; }
 }
