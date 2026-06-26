@@ -1,0 +1,7 @@
+# Dependencies (none required — site is static)
+node_modules/
+
+# Local dev server logs / OS noise
+*.log
+.DS_Store
+Thumbs.db

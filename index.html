@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Razvan Berbecar — Full-Stack Developer building full-stack web apps and AI-powered tools that actually ship." />
+  <title>Razvan Berbecar — Full-Stack Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Three.js + GSAP via importmap / CDN -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+    }
+  }
+  </script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+  <!-- ===== Loading screen ===== -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__name">RAZVAN BERBECAR</div>
+      <div class="loader__bar"><span id="loaderBar"></span></div>
+      <div class="loader__count"><span id="loaderCount">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- ===== Custom cursor ===== -->
+  <div class="cursor" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===== Three.js canvas ===== -->
+  <canvas id="bg"></canvas>
+  <div class="bg-grain"></div>
+
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo" data-cursor>RB<span>.</span></a>
+    <nav class="nav__links">
+      <a href="#about" data-cursor>About</a>
+      <a href="#stack" data-cursor>Stack</a>
+      <a href="#projects" data-cursor>Projects</a>
+      <a href="#contact" data-cursor>Contact</a>
+    </nav>
+    <a href="#contact" class="nav__cta" data-cursor>Let's talk</a>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__content" data-parallax>
+        <p class="hero__eyebrow reveal">Full-Stack Developer · AI Integrations</p>
+        <h1 class="hero__title">
+          <span class="line"><span>Razvan</span></span>
+          <span class="line"><span>Berbecar</span></span>
+        </h1>
+        <p class="hero__sub reveal">
+          I build full-stack web apps and AI-powered tools that
+          <em>actually ship.</em>
+        </p>
+        <div class="hero__tags reveal">
+          <span>React</span><span>Node.js</span><span>Python</span><span>TypeScript</span>
+        </div>
+        <div class="hero__actions reveal">
+          <a href="#projects" class="btn btn--primary" data-cursor data-magnetic>View Projects</a>
+          <a href="#contact" class="btn btn--ghost" data-cursor data-magnetic>Get in touch</a>
+        </div>
+      </div>
+      <div class="hero__scroll reveal">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="section about" id="about">
+      <div class="section__head">
+        <span class="section__index reveal">01</span>
+        <h2 class="section__title reveal">About</h2>
+      </div>
+      <div class="about__grid">
+        <div class="about__lead reveal">
+          <p>
+            I'm a full-stack developer who likes shipping real things — from
+            generative-AI tooling to trading bots and mobile apps.
+          </p>
+        </div>
+        <div class="about__body">
+          <p class="reveal">
+            Currently interning at <strong>Siemens Digital</strong>, developing a
+            generative AI application for computational geometry simulation.
+            Previously at <strong>NTT Data</strong>, bridging legacy COBOL systems
+            with modern Java / Spring Boot architectures.
+          </p>
+          <p class="reveal">
+            I'm a first-year Computer Science student at
+            <strong>Babeș-Bolyai University</strong> in Cluj-Napoca, and I spend most
+            of my time turning ideas into things people can actually use.
+          </p>
+
+          <div class="about__timeline">
+            <div class="tl reveal">
+              <div class="tl__date">Apr 2026 — Jul 2026</div>
+              <div class="tl__role">Software Engineer Intern</div>
+              <div class="tl__org">Siemens Digital</div>
+              <p class="tl__desc">Generative AI application for computational geometry simulation.</p>
+            </div>
+            <div class="tl reveal">
+              <div class="tl__date">Nov 2025 — Apr 2026</div>
+              <div class="tl__role">Software Engineer Intern</div>
+              <div class="tl__org">NTT Data Romania</div>
+              <p class="tl__desc">Bridged legacy COBOL systems with modern Java / Spring Boot architectures.</p>
+            </div>
+            <div class="tl reveal">
+              <div class="tl__date">2024 — 2027</div>
+              <div class="tl__role">BSc Computer Science</div>
+              <div class="tl__org">Babeș-Bolyai University · Cluj-Napoca</div>
+              <p class="tl__desc">First-year CS student.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Stack ===== -->
+    <section class="section stack" id="stack">
+      <div class="section__head">
+        <span class="section__index reveal">02</span>
+        <h2 class="section__title reveal">Stack</h2>
+      </div>
+      <p class="stack__intro reveal">The tools I reach for, day to day.</p>
+      <ul class="stack__grid">
+        <li class="reveal" data-cursor>React</li>
+        <li class="reveal" data-cursor>Node.js</li>
+        <li class="reveal" data-cursor>Python</li>
+        <li class="reveal" data-cursor>TypeScript</li>
+        <li class="reveal" data-cursor>GraphQL</li>
+        <li class="reveal" data-cursor>FastAPI</li>
+        <li class="reveal" data-cursor>Express.js</li>
+        <li class="reveal" data-cursor>WebSockets</li>
+        <li class="reveal" data-cursor>Docker</li>
+        <li class="reveal" data-cursor>Azure</li>
+        <li class="reveal" data-cursor>Java</li>
+        <li class="reveal" data-cursor>Spring Boot</li>
+        <li class="reveal" data-cursor>AI Development</li>
+        <li class="reveal" data-cursor>API Integration</li>
+      </ul>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section class="section projects" id="projects">
+      <div class="section__head">
+        <span class="section__index reveal">03</span>
+        <h2 class="section__title reveal">Projects</h2>
+      </div>
+
+      <div class="projects__grid">
+        <article class="card reveal" data-cursor data-magnetic>
+          <div class="card__glow"></div>
+          <div class="card__top">
+            <span class="card__num">01</span>
+            <span class="card__type">Full-Stack</span>
+          </div>
+          <h3 class="card__title">Planex</h3>
+          <p class="card__desc">
+            Full-stack task manager with real-time collaboration and complete test
+            coverage — built end to end.
+          </p>
+          <ul class="card__tags">
+            <li>React</li><li>Node.js</li><li>GraphQL</li><li>WebSockets</li>
+          </ul>
+        </article>
+
+        <article class="card reveal" data-cursor data-magnetic>
+          <div class="card__glow"></div>
+          <div class="card__top">
+            <span class="card__num">02</span>
+            <span class="card__type">Security · AI</span>
+          </div>
+          <h3 class="card__title">L2 Security Scanner</h3>
+          <p class="card__desc">
+            FastAPI + React dashboard running Slither static analysis on smart
+            contracts, with automated email digests.
+          </p>
+          <ul class="card__tags">
+            <li>FastAPI</li><li>React</li><li>Slither</li><li>Python</li>
+          </ul>
+        </article>
+
+        <article class="card reveal" data-cursor data-magnetic>
+          <div class="card__glow"></div>
+          <div class="card__top">
+            <span class="card__num">03</span>
+            <span class="card__type">DevOps · Crypto</span>
+          </div>
+          <h3 class="card__title">Crypto Trading Bot</h3>
+          <p class="card__desc">
+            Dockerized Freqtrade strategy deployed on an Azure VM, running live
+            dry-run data around the clock.
+          </p>
+          <ul class="card__tags">
+            <li>Freqtrade</li><li>Docker</li><li>Azure</li><li>Python</li>
+          </ul>
+        </article>
+
+        <article class="card reveal" data-cursor data-magnetic>
+          <div class="card__glow"></div>
+          <div class="card__top">
+            <span class="card__num">04</span>
+            <span class="card__type">iOS · AI</span>
+          </div>
+          <h3 class="card__title">FitCheck</h3>
+          <p class="card__desc">
+            A SwiftUI iOS app that uses AI to analyze outfits and give instant,
+            useful styling feedback.
+          </p>
+          <ul class="card__tags">
+            <li>SwiftUI</li><li>iOS</li><li>AI Vision</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="section contact" id="contact">
+      <div class="section__head">
+        <span class="section__index reveal">04</span>
+        <h2 class="section__title reveal">Contact</h2>
+      </div>
+      <div class="contact__inner">
+        <h3 class="contact__big reveal">Let's build<br />something that ships.</h3>
+        <p class="contact__text reveal">
+          I'm always open to interesting projects, internships, and conversations.
+        </p>
+        <a href="mailto:razvanberbecar1001@gmail.com" class="contact__mail reveal" data-cursor data-magnetic>
+          razvanberbecar1001@gmail.com
+        </a>
+        <div class="contact__links reveal">
+          <a href="https://github.com/razvanberbecar" target="_blank" rel="noopener" data-cursor>GitHub</a>
+          <a href="https://www.linkedin.com/in/razvan-berbecar-a74a21204/" target="_blank" rel="noopener" data-cursor>LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Razvan Berbecar</span>
+    <span>Built with Three.js · GSAP</span>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
