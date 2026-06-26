@@ -223,13 +223,13 @@ main, .top, .footer, .marquee { position: relative; z-index: 2; }
 .hero__name {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(3.4rem, 16vw, 15rem);
+  font-size: clamp(3rem, 13vw, 12rem); /* fallback; JS fits each line to width */
   line-height: 0.86;
   letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 .hero__name .l { display: block; overflow: hidden; }
-.hero__name .l span { display: block; }
+.hero__name .l span { display: inline-block; white-space: nowrap; line-height: 0.92; }
 .hero__name .l:nth-child(2) span { color: var(--accent); }
 .hero__bottom {
   display: flex; justify-content: space-between; align-items: flex-end;
@@ -378,14 +378,14 @@ main, .top, .footer, .marquee { position: relative; z-index: 2; }
 .contact__big {
   font-family: var(--display);
   font-weight: 800;
-  font-size: clamp(4rem, 20vw, 18rem);
+  font-size: clamp(4rem, 18vw, 16rem); /* fallback; JS fits each line to width */
   line-height: 0.82;
   letter-spacing: -0.03em;
   text-transform: uppercase;
   margin-bottom: 2.5rem;
 }
 .contact__big .l { display: block; overflow: hidden; }
-.contact__big .l span { display: block; }
+.contact__big .l span { display: inline-block; white-space: nowrap; line-height: 0.9; }
 .contact__big .l:nth-child(2) span { color: var(--accent); }
 .contact__mail {
   display: inline-block;

@@ -151,12 +151,53 @@ function initReveals() {
 }
 
 /* ============================================================
+   6. FIT DISPLAY HEADINGS TO CONTAINER WIDTH
+   Sizes each big line so it spans edge-to-edge (poster style)
+   and never overflows / clips.
+   ============================================================ */
+function fitHeadings() {
+  document.querySelectorAll(".hero__name .l span, .contact__big .l span").forEach((span) => {
+    const container = span.closest(".hero__name, .contact__big");
+    if (!container) return;
+    const cw = container.clientWidth;
+    if (!cw) return;
+    const BASE = 200;
+    const prev = span.style.fontSize;
+    span.style.fontSize = BASE + "px";
+    const tw = span.scrollWidth;
+    if (!tw) { span.style.fontSize = prev; return; }
+    // 0.99 safety so sub-pixel rounding never re-triggers the clip mask
+    span.style.fontSize = (BASE * (cw / tw) * 0.99) + "px";
+  });
+}
+
+function initFit() {
+  fitHeadings();
+  // refit once the display font is actually loaded (metrics differ from fallback)
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      fitHeadings();
+      if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+    });
+  }
+  let t;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      fitHeadings();
+      if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh();
+    }, 120);
+  });
+}
+
+/* ============================================================
    BOOTSTRAP
    ============================================================ */
 function main() {
   initCursor();
   initMagnetic();
   initScrollReactive();
+  initFit();
 
   // mask display headings immediately so they don't flash before the reveal
   if (!prefersReduced && typeof gsap !== "undefined") {
