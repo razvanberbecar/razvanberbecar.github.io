@@ -255,11 +255,7 @@ main, .top, .footer { position: relative; z-index: 2; }
   letter-spacing: -0.02em; line-height: 1;
 }
 .row__stack { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-soft); text-align: right; }
-.row__arrow {
-  font-size: 1.5rem; text-align: right;
-  transform: translateX(-8px) rotate(0deg);
-  opacity: 0; transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
-}
+
 .row__detail {
   grid-column: 2 / 4;
   font-family: var(--mono); font-size: 0.88rem; color: var(--ink-soft);
