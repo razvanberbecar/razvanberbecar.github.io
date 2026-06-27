@@ -36,11 +36,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  body { cursor: none; }
-  a, [data-cursor] { cursor: none; }
-}
-
 a { color: inherit; text-decoration: none; }
 strong { font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--accent); }
 ::selection { background: var(--accent); color: var(--paper); }
@@ -52,7 +47,7 @@ strong { font-weight: 700; color: var(--ink); border-bottom: 2px solid var(--acc
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
-main, .top, .footer, .marquee { position: relative; z-index: 2; }
+main, .top, .footer { position: relative; z-index: 2; }
 
 /* ============================================================
    Loading screen
@@ -77,32 +72,6 @@ main, .top, .footer, .marquee { position: relative; z-index: 2; }
   font-size: clamp(4rem, 18vw, 13rem);
   line-height: 0.85;
 }
-
-/* ============================================================
-   Custom cursor (label cursor)
-   ============================================================ */
-.cursor {
-  position: fixed; top: 0; left: 0;
-  width: 12px; height: 12px;
-  background: var(--accent);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 90;
-  transform: translate(-50%, -50%);
-  display: flex; align-items: center; justify-content: center;
-  transition: width 0.3s var(--ease), height 0.3s var(--ease),
-              background 0.3s var(--ease);
-  will-change: transform;
-}
-.cursor.is-hover { width: 44px; height: 44px; background: rgba(232, 64, 31, 0.18); }
-.cursor.has-label { width: 76px; height: 76px; background: var(--accent); }
-.cursor__label {
-  font-family: var(--mono); font-size: 0.62rem; font-weight: 700;
-  letter-spacing: 0.1em; color: var(--paper);
-  opacity: 0; transition: opacity 0.2s var(--ease);
-}
-.cursor.has-label .cursor__label { opacity: 1; }
-@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
 
 /* ============================================================
    Top bar
@@ -144,32 +113,6 @@ main, .top, .footer, .marquee { position: relative; z-index: 2; }
 @media (max-width: 520px) {
   .top__nav { gap: 0.8rem; font-size: 0.72rem; }
 }
-
-/* ============================================================
-   Marquee
-   ============================================================ */
-.marquee {
-  position: fixed;
-  bottom: 0; left: 0; width: 100%;
-  background: var(--ink);
-  color: var(--paper);
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 0.55rem 0;
-  z-index: 40;
-  border-top: 1px solid var(--ink);
-}
-.marquee__track {
-  display: inline-flex;
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 0.92rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  animation: marquee 26s linear infinite;
-}
-.marquee__track span { padding-right: 1rem; }
-@keyframes marquee { to { transform: translateX(-50%); } }
 
 /* ============================================================
    Layout / sections
@@ -419,5 +362,4 @@ main, .top, .footer, .marquee { position: relative; z-index: 2; }
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
-  .marquee__track { animation: none !important; }
 }

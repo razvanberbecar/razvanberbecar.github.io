@@ -7,47 +7,7 @@ const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").mat
 const isTouch = window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
 /* ============================================================
-   1. CUSTOM LABEL CURSOR
-   ============================================================ */
-function initCursor() {
-  if (isTouch) return;
-  const cur = document.getElementById("cursor");
-  const label = document.getElementById("cursorLabel");
-  if (!cur) return;
-
-  const pos = { x: innerWidth / 2, y: innerHeight / 2 };
-  const c = { ...pos };
-
-  window.addEventListener("pointermove", (e) => { pos.x = e.clientX; pos.y = e.clientY; });
-
-  function render() {
-    c.x += (pos.x - c.x) * 0.22;
-    c.y += (pos.y - c.y) * 0.22;
-    cur.style.transform = `translate(${c.x}px, ${c.y}px) translate(-50%, -50%)`;
-    requestAnimationFrame(render);
-  }
-  render();
-
-  document.querySelectorAll("[data-cursor]").forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-      cur.classList.add("is-hover");
-      if (el.dataset.label) {
-        cur.classList.add("has-label");
-        if (label) label.textContent = el.dataset.label;
-      }
-    });
-    el.addEventListener("mouseleave", () => {
-      cur.classList.remove("is-hover", "has-label");
-      if (label) label.textContent = "";
-    });
-  });
-
-  document.addEventListener("mouseleave", () => (cur.style.opacity = "0"));
-  document.addEventListener("mouseenter", () => (cur.style.opacity = "1"));
-}
-
-/* ============================================================
-   2. MAGNETIC ELEMENTS
+   1. MAGNETIC ELEMENTS
    ============================================================ */
 function initMagnetic() {
   if (isTouch || prefersReduced) return;
@@ -178,7 +138,6 @@ function initFit() {
    BOOTSTRAP
    ============================================================ */
 function main() {
-  initCursor();
   initMagnetic();
   initFit();
 
