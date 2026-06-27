@@ -270,7 +270,6 @@ main, .top, .footer { position: relative; z-index: 2; }
 }
 .row:hover .row__idx,
 .row:hover .row__stack { color: rgba(240, 236, 225, 0.85); }
-.row:hover .row__arrow { opacity: 1; transform: translateX(0); }
 .row:hover .row__detail { max-height: 80px; opacity: 1; margin-top: 0.6rem; }
 @media (max-width: 680px) {
   .row { grid-template-columns: 40px 1fr 28px; }
